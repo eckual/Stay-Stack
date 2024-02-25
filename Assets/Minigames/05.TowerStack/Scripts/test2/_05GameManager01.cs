@@ -22,8 +22,6 @@ public class _05GameManager01 : MonoBehaviour, IPointerDownHandler
     public Gradient gradient;
     private float currentGradientValue = 0.0f;
 
-
-
     //Debug Section
     private bool SpawnPlatformInfront; // Global bool value for switching look direction
     [SerializeField] private float distanceThreshold = 0.5f;
@@ -37,24 +35,25 @@ public class _05GameManager01 : MonoBehaviour, IPointerDownHandler
     {
         _05MovingPlatform01.ID = 0;
     }
+    
     private void Start()
     {
-
         LastPlatform = SpawnMovingPlatform();
         LastPlatform.Speed = 0f;
         CameraFollow cam = FindObjectOfType<CameraFollow>();
         cam.playerTransform = LastPlatform.transform;
-        ;
-        // CurrentPlatform=LastPlatform;
     }
+    
     public void OnPointerDown(PointerEventData eventData)
     {
         OnFire();
     }
+    
     public Color gradientValue()
     {
         return gradient.Evaluate(currentGradientValue);
     }
+    
     public void OnFire()
     {
         height += 0.1f;
@@ -98,7 +97,6 @@ public class _05GameManager01 : MonoBehaviour, IPointerDownHandler
          lastXZ + spawnDirection * distanceToOrigin + new Vector3(0, height, 0) :
          Vector3.zero;
 
-
         GameObject platformGO = Instantiate(platformPrefab, spawnPosition, Quaternion.identity);
         Vector3 newScale = LastPlatform ?
          new Vector3(LastPlatform.transform.localScale.x, 0.1f, LastPlatform.transform.localScale.z) :
@@ -113,13 +111,11 @@ public class _05GameManager01 : MonoBehaviour, IPointerDownHandler
         }
 
         return null;
-
     }
 
 
     public bool CheckHangover()
     {
-
         Vector3 curr = CurrentPlatform.transform.position;
         Vector3 last = LastPlatform.transform.position + Vector3.up * 0.1f;
         float distance = Vector3.Distance(curr, last);
@@ -131,7 +127,6 @@ public class _05GameManager01 : MonoBehaviour, IPointerDownHandler
             {
                 CurrentPlatform.transform.position = LastPlatform.transform.position + Vector3.up * 0.1f;
                 AudioManager_Test.Instance.PlaySound("applySound");
-
             }
             else
             {
@@ -147,9 +142,8 @@ public class _05GameManager01 : MonoBehaviour, IPointerDownHandler
             return true;
         }
         return false;
-
-
     }
+    
     private void SplitCube(float distance)
     {
         Transform t = CurrentPlatform.transform;
@@ -157,11 +151,8 @@ public class _05GameManager01 : MonoBehaviour, IPointerDownHandler
         restCube.GetComponent<Renderer>().material = LastPlatform.GetComponent<Renderer>().material;
         if (SpawnPlatformInfront)
         {
-
             restCube.transform.localScale = new Vector3(distance, t.localScale.y, t.localScale.z);
             restCube.GetComponent<Renderer>().material.color = CurrentPlatform.GetComponent<Renderer>().material.color;
-
-
             t.localScale -= new Vector3(distance, 0, 0);
             t.position = t.position.x > LastPlatform.transform.position.x ?
             t.position - new Vector3(distance * 0.5f, 0, 0) :
@@ -201,9 +192,8 @@ public class _05GameManager01 : MonoBehaviour, IPointerDownHandler
         CurrentPlatform.gameObject.AddComponent<Rigidbody>();
         yield return new WaitForSeconds(time);
         gameoverPopup.OnActivate("Game over");
-
-
     }
+    
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
