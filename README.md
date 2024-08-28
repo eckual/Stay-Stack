@@ -1,6 +1,6 @@
 # Stay Stack
 
-Stay Stack is a captivating 3D puzzle game where your goal is to strategically stack grids on top of each other, striving to maximize the size of each placement. The challenge intensifies as the grids progressively shrink, demanding precise clicks and clever maneuvers to keep the stack going.
+Stay Stack is a captivating 3D puzzle game where your goal is to strategically stack grids on top of each other, striving to maximize the size of each placement. The challenge intensifies as the grids progressively shrink, demanding precise clicks and clever maneuvers to keep the stack going and score increasing.
 
 ## Gameplay
 
