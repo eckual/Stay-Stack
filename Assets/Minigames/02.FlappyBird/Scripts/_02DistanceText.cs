@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 public class _02DistanceText : MonoBehaviour
 {
-
     private TextMeshProUGUI txt;
     private Transform playerTransform;
 
@@ -13,8 +12,10 @@ public class _02DistanceText : MonoBehaviour
         txt = GetComponent<TextMeshProUGUI>();
         playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
+    
     void Update()
     {
         txt.text = "Distance: " + playerTransform.position.x.ToString("0") + " m";
     }
+    
 }
