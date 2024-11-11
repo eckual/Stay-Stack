@@ -10,19 +10,16 @@ public class _05CubeSpawner : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-        GameObject platform = SpawnPlatform(new Vector3(3f, 0.55f, 0f), new Quaternion(0, -0.707105756f, 0, 0.707107902f));
+        GameObject platform = SpawnPlatform(new Vector3(3f, 0.55f, 0f), new Quaternion(0, -0.71f, 0, 0.71f));
 
     }
 
     public GameObject SpawnPlatform(Vector3 pos, Quaternion rotation)
     {
         GameObject platform = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        // float posX = _05MovingPlatform.CurrentPlatform ? _05MovingPlatform.CurrentPlatform.transform.position.z : 3f;
-        // float posY = _05MovingPlatform.CurrentPlatform ? _05MovingPlatform.CurrentPlatform.transform.position.y + 0.1f : 0.55f;
-        // float posZ = _05MovingPlatform.CurrentPlatform ? _05MovingPlatform.CurrentPlatform.transform.position.x : 0f;
-        // platform.transform.position = new Vector3(posX, posY, posZ);
         platform.transform.position = pos;
         _05MovingPlatform current = _05MovingPlatform.CurrentPlatform;
+        
         if (current)
         {
             float posX = current.transform.position.x;
@@ -37,7 +34,7 @@ public class _05CubeSpawner : MonoBehaviour
         _05MovingPlatform.LastPlatform = current;
         _05MovingPlatform.CurrentPlatform = platform.AddComponent<_05MovingPlatform>();
 
-
         return platform;
     }
+    
 }
