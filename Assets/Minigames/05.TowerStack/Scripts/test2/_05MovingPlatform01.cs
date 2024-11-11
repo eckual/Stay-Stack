@@ -4,7 +4,6 @@ using System.Collections;
 
 public class _05MovingPlatform01 : MonoBehaviour
 {
-
     [SerializeField] private float moveSpeed = 1f;
     public float Speed { get { return moveSpeed; } set { moveSpeed = value; } }
     [SerializeField] private bool lookLeft = true; // New bool for looking direction
@@ -25,6 +24,7 @@ public class _05MovingPlatform01 : MonoBehaviour
         movementCoroutine = StartCoroutine(MovePlatform(platformForward));
         gameObject.name += ID++.ToString();
     }
+    
     public static Color GetRandomColor()
     {
         // float[] colorValues = new float[3];
@@ -33,6 +33,7 @@ public class _05MovingPlatform01 : MonoBehaviour
         // return new Color(colorValues[0], colorValues[1], colorValues[2], 1f);
         return FindObjectOfType<_05GameManager01>().gradientValue();
     }
+    
     private IEnumerator MovePlatform(bool platformForward = true)
     {
         if (platformForward)
@@ -79,6 +80,7 @@ public class _05MovingPlatform01 : MonoBehaviour
         }
 
     }
+    
     private void SplitCube(_05MovingPlatform01 LastCube)
     {
         if (LastCube == null)
@@ -86,7 +88,6 @@ public class _05MovingPlatform01 : MonoBehaviour
             Debug.LogWarning("Lastcube = null !??!!?");
             return;
         }
-
     }
 
 }
