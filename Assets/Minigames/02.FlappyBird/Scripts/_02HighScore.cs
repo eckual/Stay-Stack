@@ -14,6 +14,7 @@ public class _02HighScore : MonoBehaviour
         if (Instance != null) Destroy(gameObject);
         Instance = this;
     }
+    
     private void Start()
     {
         // Set the save file path
@@ -21,7 +22,6 @@ public class _02HighScore : MonoBehaviour
 
         // Load the high score from the save file
         LoadHighScore();
-
         UpdateHighScoreText();
     }
 
@@ -74,4 +74,5 @@ public class _02HighScore : MonoBehaviour
             this.highScore = highScore;
         }
     }
+    
 }
