@@ -8,3 +8,5 @@ Stay Stack is a captivating 3D puzzle game where your goal is to strategically s
 - **Maximize Grid Size:** Aim to align the new grid over the old one to maximize its coverage.
 - **Test Your Precision:** Each successful stack advances the game, making the grids smaller and the challenge greater.
 
+### Stay in Rhythm:
+As the game progresses, timing becomes crucial. Align your stacks perfectly to maintain balance and avoid losing pieces of the grid.
